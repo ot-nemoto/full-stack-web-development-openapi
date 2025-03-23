@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Example API
+  description: API for demonstrating OpenAPI specification
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /example:
+    get:
+      summary: Get example data
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "This is an example response"
+                  data:
+                    type: array
+                    items:
+                      type: string
+                      example: "example item"
