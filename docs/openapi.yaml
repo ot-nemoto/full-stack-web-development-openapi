@@ -19,9 +19,8 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: "This is an example response"
+                    example: This is an example response
                   data:
                     type: array
                     items:
                       type: string
-                      example: "example item"
