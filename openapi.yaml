@@ -103,6 +103,17 @@ paths:
                       type: number
                       description: "在庫数"
                       example: 400
+        '400':
+          description: Bad Request - Missing or invalid query parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Product ID is required"
         '500':
           description: Internal Server Error
           content:
