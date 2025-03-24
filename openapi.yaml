@@ -1,26 +1,85 @@
 openapi: 3.0.0
 info:
-  title: Example API
-  description: API for demonstrating OpenAPI specification
+  title: 在庫管理システム
+  description: 実装で学ぶフルスタックWeb開発で作る「在庫管理システム」
   version: 1.0.0
 servers:
   - url: http://localhost:3000
 paths:
-  /example:
+  /api/inventory/products:
     get:
-      summary: Get example data
+      summary: 商品一覧参照
       responses:
         '200':
           description: A successful response
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: This is an example response
-                  data:
-                    type: array
-                    items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      description: "商品ID"
+                      example: 1
+                    name:
                       type: string
+                      description: "商品名"
+                      example: "コットン100%バックリボンティアードワンピース（黒）"
+                    price:
+                      type: number
+                      description: "商品単価"
+                      example: 6900
+                    description:
+                      type: string
+                      description: "商品説明"
+                      example: "大人の愛らしさを引き立てる、ナチュラルな風合い。リラックスxトレンドを楽しめる、上品なティアードワンピース。"
+  /api/inventory/inventories:
+    get:
+      summary: 在庫一覧参照
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      description: "在庫ID"
+                      example: 1
+                    product_id:
+                      type: number
+                      description: "商品ID"
+                      example: 1
+                    type:
+                      type: string
+                      description: "処理種別"
+                      enum:
+                        - "仕入れ"
+                        - "卸し"
+                      example: "仕入れ"
+                    date:
+                      type: string
+                      description: "処理日時"
+                      example: "2023-04-03 18:54:17"
+                    price:
+                      type: number
+                      description: "商品単価"
+                      example: 6900
+                    quantity:
+                      type: number
+                      description: "数量"
+                      example: 400
+                    total_price:
+                      type: number
+                      description: "価格"
+                      example: 2760000
+                    inventory:
+                      type: number
+                      description: "在庫数"
+                      example: 400
