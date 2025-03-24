@@ -50,6 +50,14 @@ paths:
   /api/inventory/inventories:
     get:
       summary: 在庫一覧参照
+      parameters:
+        - name: product_id
+          in: query
+          required: true
+          description: "商品ID"
+          schema:
+            type: number
+            example: 1
       responses:
         '200':
           description: A successful response
