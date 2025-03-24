@@ -35,6 +35,18 @@ paths:
                       type: string
                       description: "商品説明"
                       example: "大人の愛らしさを引き立てる、ナチュラルな風合い。リラックスxトレンドを楽しめる、上品なティアードワンピース。"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Failed to fetch products"
+
   /api/inventory/inventories:
     get:
       summary: 在庫一覧参照
@@ -83,3 +95,14 @@ paths:
                       type: number
                       description: "在庫数"
                       example: 400
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Failed to fetch inventories"
