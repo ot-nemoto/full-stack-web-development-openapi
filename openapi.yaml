@@ -125,3 +125,111 @@ paths:
                     type: string
                     description: "エラーメッセージ"
                     example: "Failed to fetch inventories"
+  /api/inventory/purchase:
+    post:
+      summary: 仕入れ登録
+      responses:
+        '201':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    product_id:
+                      type: number
+                      description: "商品ID"
+                      example: 1
+                    quantity:
+                      type: number
+                      description: "数量"
+                      example: 400
+        '400':
+          description: Bad Request - Invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Invalid product ID or quantity provided."
+        '404':
+          description: Not Found - Product not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Product not found."
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Failed to process the purchase due to a server error."
+  /api/inventory/sales:
+    post:
+      summary: 卸し登録
+      responses:
+        '201':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    product_id:
+                      type: number
+                      description: "商品ID"
+                      example: 1
+                    quantity:
+                      type: number
+                      description: "数量"
+                      example: 400
+        '400':
+          description: Bad Request - Invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Invalid product ID or quantity provided."
+        '404':
+          description: Not Found - Product not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Product not found."
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Failed to process the sales due to a server error."
