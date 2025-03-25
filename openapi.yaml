@@ -156,7 +156,7 @@ paths:
                   error:
                     type: string
                     description: "エラーメッセージ"
-                    example: "Invalid product ID or quantity provided."
+                    example: "Invalid product ID or quantity provided"
         '404':
           description: Not Found - Product not found
           content:
@@ -167,7 +167,7 @@ paths:
                   error:
                     type: string
                     description: "エラーメッセージ"
-                    example: "Product not found."
+                    example: "Product not found"
         '500':
           description: Internal Server Error
           content:
@@ -178,7 +178,7 @@ paths:
                   error:
                     type: string
                     description: "エラーメッセージ"
-                    example: "Failed to process the purchase due to a server error."
+                    example: "Failed to process the purchase due to a server error"
   /api/inventory/sales:
     post:
       summary: 卸し登録
@@ -210,7 +210,7 @@ paths:
                   error:
                     type: string
                     description: "エラーメッセージ"
-                    example: "Invalid product ID or quantity provided."
+                    example: "Invalid product ID or quantity provided"
         '404':
           description: Not Found - Product not found
           content:
@@ -221,7 +221,7 @@ paths:
                   error:
                     type: string
                     description: "エラーメッセージ"
-                    example: "Product not found."
+                    example: "Product not found"
         '500':
           description: Internal Server Error
           content:
@@ -232,4 +232,4 @@ paths:
                   error:
                     type: string
                     description: "エラーメッセージ"
-                    example: "Failed to process the sales due to a server error."
+                    example: "Failed to process the sales due to a server error"
