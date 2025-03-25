@@ -128,24 +128,32 @@ paths:
   /api/inventory/purchase:
     post:
       summary: 仕入れ登録
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: number
+                  description: "商品ID"
+                  example: 1
+                quantity:
+                  type: number
+                  description: "数量"
+                  example: 400
       responses:
         '201':
           description: A successful response
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    product_id:
-                      type: number
-                      description: "商品ID"
-                      example: 1
-                    quantity:
-                      type: number
-                      description: "数量"
-                      example: 400
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Inventory created"
         '400':
           description: Bad Request - Invalid input
           content:
@@ -156,7 +164,7 @@ paths:
                   error:
                     type: string
                     description: "エラーメッセージ"
-                    example: "Invalid product ID or quantity provided"
+                    example: "product_id and quantity are required"
         '404':
           description: Not Found - Product not found
           content:
@@ -178,28 +186,36 @@ paths:
                   error:
                     type: string
                     description: "エラーメッセージ"
-                    example: "Failed to process the purchase due to a server error"
+                    example: "Failed to create inventory"
   /api/inventory/sales:
     post:
       summary: 卸し登録
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: number
+                  description: "商品ID"
+                  example: 1
+                quantity:
+                  type: number
+                  description: "数量"
+                  example: 400
       responses:
         '201':
           description: A successful response
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    product_id:
-                      type: number
-                      description: "商品ID"
-                      example: 1
-                    quantity:
-                      type: number
-                      description: "数量"
-                      example: 400
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Inventory created"
         '400':
           description: Bad Request - Invalid input
           content:
@@ -210,7 +226,7 @@ paths:
                   error:
                     type: string
                     description: "エラーメッセージ"
-                    example: "Invalid product ID or quantity provided"
+                    example: "product_id and quantity are required"
         '404':
           description: Not Found - Product not found
           content:
@@ -232,4 +248,4 @@ paths:
                   error:
                     type: string
                     description: "エラーメッセージ"
-                    example: "Failed to process the sales due to a server error"
+                    example: "Failed to create inventory"
