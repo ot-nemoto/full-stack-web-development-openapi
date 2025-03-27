@@ -46,7 +46,63 @@ paths:
                     type: string
                     description: "エラーメッセージ"
                     example: "Failed to fetch products"
-
+  /api/inventory/products/{id}:
+    get:
+      summary: 商品参照
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "商品ID"
+          schema:
+            type: number
+            example: 1
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    description: "商品ID"
+                    example: 1
+                  name:
+                    type: string
+                    description: "商品名"
+                    example: "コットン100%バックリボンティアードワンピース（黒）"
+                  price:
+                    type: number
+                    description: "商品単価"
+                    example: 6900
+                  description:
+                    type: string
+                    description: "商品説明"
+                    example: "大人の愛らしさを引き立てる、ナチュラルな風合い。リラックスxトレンドを楽しめる、上品なティアードワンピース。"
+        '404':
+          description: Not Found - Product not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Product not found"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Failed to fetch product details"
   /api/inventory/inventories:
     get:
       summary: 在庫一覧参照
