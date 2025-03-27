@@ -16,7 +16,9 @@ jobs:
         run: |
           npm install -g redoc-cli
           redoc-cli bundle openapi.yaml -o ./docs/index.html
-          cp ./docs/index.html ./docs/v0.0.1.html
+          BRANCH="${{ github.ref_name }}"
+          VERSION=$(echo "${BRANCH}" | cut -d'/' -f2)
+          cp ./docs/index.html ./docs/${VERSION}.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
