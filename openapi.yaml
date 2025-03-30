@@ -171,6 +171,92 @@ paths:
                     type: string
                     description: "エラーメッセージ"
                     example: "Failed to fetch product details"
+    put:
+      summary: 商品更新
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "商品ID"
+          schema:
+            type: number
+            example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "商品名"
+                  example: "ミニ裏毛7分袖プルオーバー"
+                price:
+                  type: number
+                  description: "商品単価"
+                  example: 4000
+                description:
+                  type: string
+                  description: "商品説明"
+                  example: "大人の上品カジュアルが叶うプルオーバー"
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    description: "商品ID"
+                    example: 1
+                  name:
+                    type: string
+                    description: "商品名"
+                    example: "ミニ裏毛7分袖プルオーバー"
+                  price:
+                    type: number
+                    description: "商品単価"
+                    example: 4000
+                  description:
+                    type: string
+                    description: "商品説明"
+                    example: "大人の上品カジュアルが叶うプルオーバー"
+        '400':
+          description: Bad Request - Invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Invalid input data"
+        '404':
+          description: Not Found - Product not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Product not found"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Failed to update product"
     delete:
       summary: 商品削除
       parameters:
