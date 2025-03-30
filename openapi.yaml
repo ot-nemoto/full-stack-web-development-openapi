@@ -83,15 +83,15 @@ paths:
                   name:
                     type: string
                     description: "商品名"
-                    example: "新しい商品名"
+                    example: "アソートフレアスカート"
                   price:
                     type: number
                     description: "商品単価"
-                    example: 5000
+                    example: 6000
                   description:
                     type: string
                     description: "商品説明"
-                    example: "新しい商品の説明"
+                    example: "オトナも可愛くスタイルアップ！爽やかで印象に残る春スカート"
         '400':
           description: Bad Request - Invalid input
           content:
