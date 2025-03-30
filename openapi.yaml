@@ -50,6 +50,8 @@ paths:
                     example: "Failed to fetch products"
   /api/inventory/products/{id}:
     get:
+      tags:
+        - 商品
       summary: 商品参照
       parameters:
         - name: id
@@ -187,6 +189,8 @@ paths:
                     example: "Failed to fetch inventories"
   /api/inventory/purchase:
     post:
+      tags:
+        - 在庫
       summary: 仕入れ登録
       requestBody:
         required: true
@@ -249,6 +253,8 @@ paths:
                     example: "Failed to create inventory"
   /api/inventory/sales:
     post:
+      tags:
+        - 在庫
       summary: 卸し登録
       requestBody:
         required: true
