@@ -47,8 +47,7 @@ paths:
                     description: "エラーメッセージ"
                     example: "Failed to fetch products"
     post:
-      summary: 商品作成
-      description: 新しい商品を作成します。
+      summary: 商品登録
       requestBody:
         required: true
         content:
@@ -206,6 +205,84 @@ paths:
                     type: string
                     description: "エラーメッセージ"
                     example: "Failed to delete product"
+  /api/inventory/inventories:
+    get:
+      summary: 在庫一覧参照
+      parameters:
+        - name: product_id
+          in: query
+          required: true
+          description: "商品ID"
+          schema:
+            type: number
+            example: 1
+      responses:
+        '200':
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      description: "在庫ID"
+                      example: 1
+                    product_id:
+                      type: number
+                      description: "商品ID"
+                      example: 1
+                    type:
+                      type: string
+                      description: "処理種別"
+                      enum:
+                        - "仕入れ"
+                        - "卸し"
+                      example: "仕入れ"
+                    date:
+                      type: string
+                      description: "処理日時"
+                      example: "2023-04-03 18:54:17"
+                    price:
+                      type: number
+                      description: "商品単価"
+                      example: 6900
+                    quantity:
+                      type: number
+                      description: "数量"
+                      example: 400
+                    total_price:
+                      type: number
+                      description: "価格"
+                      example: 2760000
+                    inventory:
+                      type: number
+                      description: "在庫数"
+                      example: 400
+        '400':
+          description: Bad Request - Missing or invalid query parameter
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Product ID is required"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Failed to fetch inventories"
   /api/inventory/purchase:
     post:
       summary: 仕入れ登録
