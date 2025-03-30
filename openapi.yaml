@@ -8,6 +8,8 @@ servers:
 paths:
   /api/inventory/products:
     get:
+      tags:
+        - 商品
       summary: 商品一覧参照
       responses:
         '200':
@@ -115,6 +117,8 @@ paths:
                     example: "Failed to create product"
   /api/inventory/products/{id}:
     get:
+      tags:
+        - 商品
       summary: 商品参照
       parameters:
         - name: id
@@ -172,6 +176,8 @@ paths:
                     example: "Failed to fetch product details"
   /api/inventory/inventories:
     get:
+      tags:
+        - 在庫
       summary: 在庫一覧参照
       parameters:
         - name: product_id
@@ -250,6 +256,8 @@ paths:
                     example: "Failed to fetch inventories"
   /api/inventory/purchase:
     post:
+      tags:
+        - 在庫
       summary: 仕入れ登録
       requestBody:
         required: true
@@ -312,6 +320,8 @@ paths:
                     example: "Failed to create inventory"
   /api/inventory/sales:
     post:
+      tags:
+        - 在庫
       summary: 卸し登録
       requestBody:
         required: true
