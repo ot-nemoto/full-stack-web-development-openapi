@@ -171,41 +171,6 @@ paths:
                     type: string
                     description: "エラーメッセージ"
                     example: "Failed to fetch product details"
-    delete:
-      summary: 商品削除
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: "商品ID"
-          schema:
-            type: number
-            example: 1
-      responses:
-        '204':
-          description: No Content - Product deleted successfully
-        '404':
-          description: Not Found - Product not found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    description: "エラーメッセージ"
-                    example: "Product not found"
-        '500':
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    description: "エラーメッセージ"
-                    example: "Failed to delete product"
   /api/inventory/purchase:
     post:
       summary: 仕入れ登録
