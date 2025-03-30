@@ -177,6 +177,8 @@ paths:
                     description: "エラーメッセージ"
                     example: "Failed to fetch product details"
     put:
+      tags:
+        - 商品
       summary: 商品更新
       parameters:
         - name: id
