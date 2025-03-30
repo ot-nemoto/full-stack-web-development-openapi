@@ -49,6 +49,8 @@ paths:
                     description: "エラーメッセージ"
                     example: "Failed to fetch products"
     post:
+      tags:
+        - 商品
       summary: 商品登録
       requestBody:
         required: true
