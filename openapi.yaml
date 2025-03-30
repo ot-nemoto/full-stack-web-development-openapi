@@ -8,6 +8,8 @@ servers:
 paths:
   /api/inventory/products:
     get:
+      tags:
+        - 商品
       summary: 商品一覧参照
       responses:
         '200':
@@ -49,6 +51,8 @@ paths:
 
   /api/inventory/inventories:
     get:
+      tags:
+        - 在庫
       summary: 在庫一覧参照
       parameters:
         - name: product_id
