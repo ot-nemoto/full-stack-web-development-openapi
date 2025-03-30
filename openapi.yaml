@@ -81,6 +81,17 @@ paths:
                     type: string
                     description: "商品説明"
                     example: "大人の愛らしさを引き立てる、ナチュラルな風合い。リラックスxトレンドを楽しめる、上品なティアードワンピース。"
+        '404':
+          description: Not Found - Product not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: "エラーメッセージ"
+                    example: "Product not found"
         '500':
           description: Internal Server Error
           content:
